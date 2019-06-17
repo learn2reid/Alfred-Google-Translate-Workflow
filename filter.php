@@ -14,9 +14,8 @@ $alphred = new Alphred([ 'config_handler' => 'json' ]);
 $languages = $alphred->config_read( 'languages' );
 if ( empty( $languages ) ) {
 	$languages = [
-		'fr' => 'French',
-		'el' => 'Greek',
-		'de' => 'German'
+		'en' => 'English',
+		'es' => 'Spanish',
 	];
 	$alphred->config_set( 'languages', $languages );
 }

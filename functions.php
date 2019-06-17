@@ -1,11 +1,11 @@
 <?php
 
 function construct_query( $text, $code ) {
-	$query =  "http://translate.google.com/translate_a/single?client=json&ie=UTF-8&oe=UTF-8";
-	$query .= "&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&dt=at";
+	$query =  "https://translate.googleapis.com/translate_a/single?client=gtx";
+	$query .= "&dt=bd&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=t&dt=at";
+	$query .= "&hl=en&sl=auto"; // HomeLang = English & SourceLang = auto
+	$query .= "&tl=" . $code; // targetLang = code we set
 	$query .= "&q=" . urlencode( $text );
-	$query .= "&hl=en&sl=auto&";
-	$query .= "tl=" . $code;
 	return $query;
 }
 
@@ -26,5 +26,4 @@ function fix_garbled_json( $trans ) {
 	return $string;
 }
 
-
-
+// https://stackoverflow.com/questions/26714426/what-is-the-meaning-of-google-translate-query-params
